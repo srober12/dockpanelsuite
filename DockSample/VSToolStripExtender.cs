@@ -77,6 +77,8 @@ namespace DockSample
 
         public ToolStripRenderer VS2012Renderer { get; set; }
 
+        public ToolStripRenderer VS2015DarkRenderer { get; set; }
+
         public ToolStripRenderer VS2013Renderer { get; set; }
 
         [DefaultValue(false)]
@@ -109,7 +111,8 @@ namespace DockSample
             {
                 strip.Renderer = version == VsVersion.Vs2013
                                      ? this.VS2013Renderer
-                                     : version == VsVersion.Vs2012 ? VS2012Renderer : DefaultRenderer;
+                                     : version == VsVersion.Vs2012 ? VS2012Renderer 
+                                     : version == VsVersion.Vs2015Dark ? VS2015DarkRenderer : DefaultRenderer;
                 properties.VsVersion = version;
             }
         }
@@ -120,7 +123,8 @@ namespace DockSample
             Vs2003,
             Vs2005,
             Vs2012,
-            Vs2013
+            Vs2013,
+            Vs2015Dark
         }
     }
 }

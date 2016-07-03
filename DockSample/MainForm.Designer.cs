@@ -55,6 +55,7 @@ namespace DockSample
             this.menuItemLockLayout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemShowDocumentIcon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemSchemaVS2015Dark = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2013Blue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2012Light = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2005 = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,10 +90,14 @@ namespace DockSample
             this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
             this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
             this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
+            this.vS2012DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
             this.vS2013BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme();
             this.vS2012ToolStripExtender1 = new DockSample.VSToolStripExtender(this.components);
             this.topBar = new System.Windows.Forms.Panel();
             this.bottomBar = new System.Windows.Forms.Panel();
+            this.twoLevelTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.SuspendLayout();
@@ -284,6 +289,7 @@ namespace DockSample
             this.menuItemLockLayout,
             this.menuItemShowDocumentIcon,
             this.menuItem3,
+            this.menuItemSchemaVS2015Dark,
             this.menuItemSchemaVS2013Blue,
             this.menuItemSchemaVS2012Light,
             this.menuItemSchemaVS2005,
@@ -297,7 +303,7 @@ namespace DockSample
             this.showRightToLeft});
             this.menuItemTools.MergeIndex = 2;
             this.menuItemTools.Name = "menuItemTools";
-            this.menuItemTools.Size = new System.Drawing.Size(47, 20);
+            this.menuItemTools.Size = new System.Drawing.Size(48, 20);
             this.menuItemTools.Text = "&Tools";
             this.menuItemTools.DropDownOpening += new System.EventHandler(this.menuItemTools_Popup);
             // 
@@ -319,6 +325,13 @@ namespace DockSample
             // 
             this.menuItem3.Name = "menuItem3";
             this.menuItem3.Size = new System.Drawing.Size(252, 6);
+            // 
+            // menuItemSchemaVS2015Dark
+            // 
+            this.menuItemSchemaVS2015Dark.Name = "menuItemSchemaVS2015Dark";
+            this.menuItemSchemaVS2015Dark.Size = new System.Drawing.Size(255, 22);
+            this.menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
+            this.menuItemSchemaVS2015Dark.Click += new System.EventHandler(this.SetSchema);
             // 
             // menuItemSchemaVS2013Blue
             // 
@@ -409,14 +422,15 @@ namespace DockSample
             // menuItemNewWindow
             // 
             this.menuItemNewWindow.Name = "menuItemNewWindow";
-            this.menuItemNewWindow.Size = new System.Drawing.Size(145, 22);
+            this.menuItemNewWindow.Size = new System.Drawing.Size(152, 22);
             this.menuItemNewWindow.Text = "&New Window";
             this.menuItemNewWindow.Click += new System.EventHandler(this.menuItemNewWindow_Click);
             // 
             // menuItemHelp
             // 
             this.menuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemAbout});
+            this.menuItemAbout,
+            this.twoLevelTestToolStripMenuItem});
             this.menuItemHelp.MergeIndex = 3;
             this.menuItemHelp.Name = "menuItemHelp";
             this.menuItemHelp.Size = new System.Drawing.Size(44, 20);
@@ -578,6 +592,7 @@ namespace DockSample
             // 
             // topBar
             // 
+            this.topBar.BackColor = System.Drawing.SystemColors.Control;
             this.topBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.topBar.Location = new System.Drawing.Point(0, 49);
             this.topBar.Name = "topBar";
@@ -594,8 +609,30 @@ namespace DockSample
             this.bottomBar.TabIndex = 10;
             this.bottomBar.Visible = false;
             // 
+            // twoLevelTestToolStripMenuItem
+            // 
+            this.twoLevelTestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.item1ToolStripMenuItem,
+            this.item2ToolStripMenuItem});
+            this.twoLevelTestToolStripMenuItem.Name = "twoLevelTestToolStripMenuItem";
+            this.twoLevelTestToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.twoLevelTestToolStripMenuItem.Text = "Two Level Test";
+            // 
+            // item1ToolStripMenuItem
+            // 
+            this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
+            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.item1ToolStripMenuItem.Text = "Item 1";
+            // 
+            // item2ToolStripMenuItem
+            // 
+            this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
+            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.item2ToolStripMenuItem.Text = "Item 2";
+            // 
             // MainForm
             // 
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(579, 409);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.bottomBar);
@@ -681,10 +718,15 @@ namespace DockSample
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Blue;
         private WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme vS2013BlueTheme1;
         private WeifenLuo.WinFormsUI.Docking.VS2012LightTheme vS2012LightTheme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme vS2012DarkTheme1;
         private WeifenLuo.WinFormsUI.Docking.VS2003Theme vS2003Theme1;
         private WeifenLuo.WinFormsUI.Docking.VS2005Theme vS2005Theme1;
         private VSToolStripExtender vS2012ToolStripExtender1;
         private System.Windows.Forms.Panel topBar;
         private System.Windows.Forms.Panel bottomBar;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
+        private System.Windows.Forms.ToolStripMenuItem twoLevelTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem item1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem item2ToolStripMenuItem;
     }
 }

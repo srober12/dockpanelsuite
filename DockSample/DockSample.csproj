@@ -98,6 +98,7 @@
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="VS2012ColorTable.cs" />
+    <Compile Include="VS2015DarkToolStripRenderer.cs" />
     <Compile Include="VSToolStripExtender.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -169,6 +170,10 @@
     <ProjectReference Include="..\WinFormsUI\ThemeVS2003.csproj">
       <Project>{719f0f69-66da-438d-b5bb-2d883ef4ace2}</Project>
       <Name>ThemeVS2003</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\ThemeVS2015Dark.csproj">
+      <Project>{b0aa7772-1eac-448c-ab0b-f5e1e2f7efe0}</Project>
+      <Name>ThemeVS2015Dark</Name>
     </ProjectReference>
     <ProjectReference Include="..\WinFormsUI\ThemeVS2012Light.csproj">
       <Project>{4ed4fdb5-9fd0-49e6-876d-1635f727c755}</Project>

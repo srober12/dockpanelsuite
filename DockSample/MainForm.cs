@@ -36,6 +36,7 @@ namespace DockSample
             
             vS2012ToolStripExtender1.DefaultRenderer = _toolStripProfessionalRenderer;
             vS2012ToolStripExtender1.VS2012Renderer = _vs2012ToolStripRenderer;
+            vS2012ToolStripExtender1.VS2015DarkRenderer = _vs2015DarkToolStripRenderer;
             vS2012ToolStripExtender1.VS2013Renderer = _vs2013ToolStripRenderer;
 
             this.topBar.BackColor = this.bottomBar.BackColor = Color.FromArgb(0xFF, 41, 57, 85);
@@ -154,6 +155,7 @@ namespace DockSample
 
         private readonly ToolStripRenderer _toolStripProfessionalRenderer = new ToolStripProfessionalRenderer();
         private readonly ToolStripRenderer _vs2012ToolStripRenderer = new VS2012ToolStripRenderer();
+        private readonly ToolStripRenderer _vs2015DarkToolStripRenderer = new VS2015DarkToolStripRenderer();
         private readonly ToolStripRenderer _vs2013ToolStripRenderer = new Vs2013ToolStripRenderer();
         
         private void SetSchema(object sender, System.EventArgs e)
@@ -184,10 +186,16 @@ namespace DockSample
                 this.dockPanel.Theme = this.vS2013BlueTheme1;
                 this.EnableVSRenderer(VSToolStripExtender.VsVersion.Vs2013);
             }
+            else if (sender == this.menuItemSchemaVS2015Dark)
+            {
+                this.dockPanel.Theme = this.vS2012DarkTheme1;
+                this.EnableVSRenderer(VSToolStripExtender.VsVersion.Vs2015Dark);
+            }
 
             menuItemSchemaVS2005.Checked = (sender == menuItemSchemaVS2005);
             menuItemSchemaVS2003.Checked = (sender == menuItemSchemaVS2003);
             menuItemSchemaVS2012Light.Checked = (sender == menuItemSchemaVS2012Light);
+            menuItemSchemaVS2015Dark.Checked = (sender == menuItemSchemaVS2015Dark);
             this.menuItemSchemaVS2013Blue.Checked = (sender == this.menuItemSchemaVS2013Blue);
             this.topBar.Visible = this.bottomBar.Visible = (sender == this.menuItemSchemaVS2013Blue);
 
